@@ -61,8 +61,8 @@
 ### SubCategories CRUD
 
 <ul>
-  <li>GET => LIST <code>/api/sub-category?category_id=1</code></li>
-  <li>GET => ONE <code>/api/sub-category/[id]</code></li>
+  <li>GET => LIST <code>/api/sub-category</code></li>
+  <li>GET => ONE GROUP <code>/api/sub-category?category_id=1</code></li>
   <li>POST => CREATE <code>/api/sub-category/create?category_id=1</code></li>
   <li>PUT => UPDATE <code>/api/sub-category/update?id=1</code></li>
   <li>DELETE => DELETE <code>/api/sub-category/delete?id=1</code></li>
