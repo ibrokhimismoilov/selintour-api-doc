@@ -4,7 +4,7 @@
 
 <hr />
 
-#### GET List _*/api/settings*_
+#### GET List `/api/settings`
 
 ```JavaScript
 [
