@@ -23,8 +23,8 @@
   description_en: string;
   link: string;
   alias: string;
-  slug: string;
-  status: number;
+  slug: string;  // on update don't edit slug field
+  status: number;  // bg default 1
   creaetd_at: Date;
   updated_at: Date;
 }
@@ -48,7 +48,7 @@
   title_uz: string;
   title_ru: string;
   title_en: string;
-  status: number;
+  status: number;  // bg default 1
 }
 ```
 
@@ -71,6 +71,6 @@
   title_ru: string;
   title_en: string;
   category_id: number;
-  status: number;
+  status: number; // bg default 1
 }
 ```
