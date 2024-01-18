@@ -5,11 +5,11 @@
 ### Settings CRUD
 
 <ul>
-  <li>GET => LIST <kbd>/api/settings</kbd></li>
-  <li>GET => ONE <kbd>/api/settings/[slug]</kbd></li>
-  <li>POST => CREATE <kbd>/api/settings/create</kbd></li>
-  <li>PUT => UPDATE <kbd>/api/settings/update?id=1</kbd></li>
-  <li>DELETE => DELETE <kbd>/api/settings/delete?id=1</kbd></li>
+  <li>GET => LIST <code>/api/settings</code></li>
+  <li>GET => ONE <code>/api/settings/[slug]</code></li>
+  <li>POST => CREATE <code>/api/settings/create</code></li>
+  <li>PUT => UPDATE <code>/api/settings/update?id=1</code></li>
+  <li>DELETE => DELETE <code>/api/settings/delete?id=1</code></li>
 </ul>
 
 ```JS
@@ -35,11 +35,11 @@
 ### Categories CRUD
 
 <ul>
-  <li>GET => LIST <kbd>/api/category</kbd> </li>
-  <li>GET => ONE </kbd>/api/category/[id]</kbd></li>
-  <li>POST => CREATE </kbd>/api/category/create</kbd></li>
-  <li>PUT => UPDATE </kbd>/api/category/update?id=1</kbd></li>
-  <li>DELETE => DELETE </kbd>/api/category/delete?id=1</kbd></li>
+  <li>GET => LIST <code>/api/category</code> </li>
+  <li>GET => ONE <code>/api/category/[id]</code></li>
+  <li>POST => CREATE <code>/api/category/create</code></li>
+  <li>PUT => UPDATE <code>/api/category/update?id=1</code></li>
+  <li>DELETE => DELETE <code>/api/category/delete?id=1</code></li>
 </ul>
 
 ```JS
@@ -57,11 +57,11 @@
 ### SubCategories CRUD
 
 <ul>
-  <li>GET => LIST <kbd>/api/sub-category?category_id=1</kbd></li>
-  <li>GET => ONE <kbd>/api/sub-category/[id]</kbd></li>
-  <li>POST => CREATE <kbd>/api/sub-category/create?category_id=1</kbd></li>
-  <li>PUT => UPDATE <kbd>/api/sub-category/update?id=1</kbd></li>
-  <li>DELETE => DELETE <kbd>/api/sub-category/delete?id=1</kbd></li>
+  <li>GET => LIST <code>/api/sub-category?category_id=1</code></li>
+  <li>GET => ONE <code>/api/sub-category/[id]</code></li>
+  <li>POST => CREATE <code>/api/sub-category/create?category_id=1</code></li>
+  <li>PUT => UPDATE <code>/api/sub-category/update?id=1</code></li>
+  <li>DELETE => DELETE <code>/api/sub-category/delete?id=1</code></li>
 </ul>
 
 ```JS
