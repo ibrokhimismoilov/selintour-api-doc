@@ -26,9 +26,9 @@
   link: string;
   alias: string;
   *slug: string;  // on update don't edit slug field
-  status: number;  // bg default 1
-  creaetd_at: Date;
-  updated_at: Date;
+  status: number;  // byDefault 1
+  creaetd_at: DATE;
+  updated_at: DATE;
 }
 ```
 
@@ -50,9 +50,9 @@
   *title_uz: string;
   *title_ru: string;
   *title_en: string;
-  status: number;  // bg default 1
-  creaetd_at: Date;
-  updated_at: Date;
+  status: number;  // byDefault 1
+  creaetd_at: DATE;
+  updated_at: DATE;
 }
 ```
 
@@ -75,9 +75,9 @@
   *title_ru: string;
   *title_en: string;
   *category_id: number;
-  status: number; // bg default 1
-  creaetd_at: Date;
-  updated_at: Date;
+  status: number; // byDefault 1
+  creaetd_at: DATE;
+  updated_at: DATE;
 }
 ```
 
@@ -103,9 +103,9 @@
   *description_ru: string;
   *description_en: string;
   sub_category_ids: number[]; // [1, 2, 3]
-  status: number; // bg default 1
-  creaetd_at: Date;
-  updated_at: Date;
+  status: number; // byDefault 1
+  creaetd_at: DATE;
+  updated_at: DATE;
 }
 ```
 
@@ -135,12 +135,12 @@
   content_en: string; // unlimited size
   link: string;
   *slug: string;  // on update don't edit slug field
-  status: number;  // bg default 1
+  status: number;  // byDefault 1
   file_ids: number[]; // example: [1, 2, 3]
   files: [file urls]; // example: ["https...jpg", "https...png", "https...svg"]
   checked_list: string[];  // ["...", "..."]
-  creaetd_at: Date;
-  updated_at: Date;
+  creaetd_at: DATE;
+  updated_at: DATE;
 }
 ```
 
@@ -209,3 +209,86 @@
 ================================================================================
 <br/>
 <br/>
+
+### Destinations CRUD
+
+<ul>
+  <li>GET => LIST <code>/api/destination</code></li>
+  <li>GET => ONE <code>/api/destination/[id]</code></li>
+  <li>POST => CREATE <code>/api/destination/create</code></li>
+  <li>PUT => UPDATE <code>/api/destination/update?id=1</code></li>
+  <li>DELETE => DELETE <code>/api/destination/delete?id=1</code></li>
+</ul>
+
+```JS
+{
+  id: number;
+  *title_uz: string;
+  *title_ru: string;
+  *title_en: string;
+  *description_uz: string;
+  *description_ru: string;
+  *description_en: string;
+  top: number;  // 0 | 1 => byDefault 1
+  tour_count: number; // auto generate joined tours count
+  sub_category_ids: number[]; // [1, 2, 3]
+  cauntry_ids: number[]; // [1, 2, 3]
+  status: number;  // byDefault 1
+  *file_id: number; // example: 1
+  files: fileUrls; // example: "https...jpg"
+  creaetd_at: DATE;
+  updated_at: DATE;
+}
+```
+
+<hr />
+
+### Tours CRUD
+
+<ul>
+  <li>GET => LIST <code>/api/tour</code></li>
+  <li>GET => ONE <code>/api/tour/[id]</code></li>
+  <li>POST => CREATE <code>/api/tour/create</code></li>
+  <li>PUT => UPDATE <code>/api/tour/update?id=1</code></li>
+  <li>DELETE => DELETE <code>/api/tour/delete?id=1</code></li>
+</ul>
+
+```JS
+
+// filter params
+{
+  id: number;
+
+  destination_id: number;
+
+  sub_category_id: number;
+
+  begin_people_count: number;
+  end_people_count: number;
+
+  begin_date: number;
+  end_date: number;
+}
+
+// data
+{
+  id: number;
+  *title_uz: string;
+  *title_ru: string;
+  *title_en: string;
+  *description_uz: string;
+  *description_ru: string;
+  *description_en: string;
+  top: number;  // 0 | 1 => byDefault 1
+  tour_count: number; // auto generate joined tours count
+  sub_category_ids: number[]; // [1, 2, 3]
+  cauntry_ids: number[]; // [1, 2, 3]
+  status: number;  // byDefault 1
+  *file_id: number; // example: 1
+  files: fileUrls; // example: "https...jpg"
+  creaetd_at: DATE;
+  updated_at: DATE;
+}
+```
+
+<hr />
