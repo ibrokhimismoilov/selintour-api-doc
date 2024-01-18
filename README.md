@@ -2,7 +2,7 @@
 
 ## Settings Crud
 
-GET LIST /api/settings
+GET LIST /api/settings[/api/settings]
 
 ```JSON
 {
