@@ -133,3 +133,41 @@
   title_en: string;
 }
 ```
+
+======================================================================
+
+### AUTH REGISTER
+
+<ul>
+  <li>POST => REGISTER <code>/api/auth/register</code></li>
+</ul>
+
+```JS
+{
+  id: number;
+  *first_name: string;
+  last_name: string;
+  birth_date: DATE; // 24.01.1998
+  *email: string;
+  *phone: string;
+  *country_id: number; // from /api/country
+  region: string;
+  *password: string;
+  *repeat_password: string;
+}
+```
+
+<hr />
+
+### AUTH LOGIN
+
+<ul>
+  <li>POST => LOGIN <code>/api/auth/login</code></li>
+</ul>
+
+```JS
+{
+  *email: string;
+  *password: string;
+}
+```
