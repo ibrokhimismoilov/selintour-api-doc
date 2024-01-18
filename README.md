@@ -81,6 +81,34 @@
 
 <hr/>
 
+### FAQ CRUD
+
+<ul>
+  <li>GET => LIST <code>/api/faq</code></li>
+  <li>GET => ONE GROUP <code>/api/faq?sub_category_id=1</code></li>
+  <li>POST => CREATE <code>/api/faq/create?sub_category_id=1</code></li>
+  <li>PUT => UPDATE <code>/api/faq/update?id=1</code></li>
+  <li>DELETE => DELETE <code>/api/faq/delete?id=1</code></li>
+</ul>
+
+```JS
+{
+  id: number;
+  title_uz: string;
+  title_ru: string;
+  title_en: string;
+  description_uz: string;
+  description_ru: string;
+  description_en: string;
+  sub_category_ids: number[]; // [1, 2, 3]
+  status: number; // bg default 1
+  creaetd_at: Date;
+  updated_at: Date;
+}
+```
+
+<hr/>
+
 ### Page CRUD
 
 <ul>
@@ -134,7 +162,11 @@
 }
 ```
 
-======================================================================
+<br/>
+<br/>
+================================================================================
+<br/>
+<br/>
 
 ### AUTH REGISTER
 
@@ -171,3 +203,9 @@
   *password: string;
 }
 ```
+
+<br/>
+<br/>
+================================================================================
+<br/>
+<br/>
