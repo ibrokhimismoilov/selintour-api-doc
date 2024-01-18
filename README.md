@@ -25,7 +25,7 @@
 ]
 ```
 
-#### GET One /api/settings/[slug]
+#### GET One `/api/settings/[slug]`
 
 ```JavaScript
 {
@@ -44,7 +44,7 @@
 }
 ```
 
-#### POST Create /api/settings/create
+#### POST Create `/api/settings/create`
 
 ```JavaScript
 {
@@ -60,7 +60,7 @@
 }
 ```
 
-#### PUT Update /api/settings/update?id=1
+#### PUT Update `/api/settings/update?id=1`
 
 ```JavaScript
 {
@@ -77,6 +77,6 @@
 }
 ```
 
-#### PUT Delete /api/settings/delete?id=1
+#### PUT Delete `/api/settings/delete?id=1`
 
 <hr />
