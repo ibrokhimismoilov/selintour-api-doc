@@ -6,7 +6,7 @@
 
 #### GET List /api/settings
 
-```TypeScript
+```JavaScript
 [
   {
     id: number;
@@ -27,7 +27,7 @@
 
 #### GET One /api/settings/[slug]
 
-```TypeScript
+```JavaScript
 {
   id: number;
   title_uz: string;
@@ -46,7 +46,7 @@
 
 #### POST Create /api/settings/create
 
-```TypeScript
+```JavaScript
 {
   title_uz: string;
   title_ru: string;
@@ -62,7 +62,7 @@
 
 #### PUT Update /api/settings/update?id=1
 
-```TypeScript
+```JavaScript
 {
   id: number;
   title_uz: string;
