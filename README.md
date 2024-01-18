@@ -4,7 +4,7 @@
 
 GET LIST /api/settings[/api/settings]
 
-```JSON
+```JS
 {
   id: number;
   title_uz: string;
