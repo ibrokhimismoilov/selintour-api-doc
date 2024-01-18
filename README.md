@@ -49,6 +49,8 @@
   title_ru: string;
   title_en: string;
   status: number;  // bg default 1
+  creaetd_at: Date;
+  updated_at: Date;
 }
 ```
 
@@ -72,5 +74,39 @@
   title_en: string;
   category_id: number;
   status: number; // bg default 1
+  creaetd_at: Date;
+  updated_at: Date;
+}
+```
+
+<hr/>
+
+### Page CRUD
+
+<ul>
+  <li>GET => LIST <code>/api/page</code></li>
+  <li>GET => ONE <code>/api/page/[slug]</code></li>
+  <li>POST => CREATE <code>/api/page/create</code></li>
+  <li>PUT => UPDATE <code>/api/page/update?id=1</code></li>
+  <li>DELETE => DELETE <code>/api/page/delete?id=1</code></li>
+</ul>
+
+```JS
+{
+  id: number;
+  title_uz: string;
+  title_ru: string;
+  title_en: string;
+  description_uz: string;
+  description_ru: string;
+  description_en: string;
+  content_uz: string; // unlimited size
+  content_ru: string; // unlimited size
+  content_en: string; // unlimited size
+  link: string;
+  slug: string;  // on update don't edit slug field
+  status: number;  // bg default 1
+  creaetd_at: Date;
+  updated_at: Date;
 }
 ```
