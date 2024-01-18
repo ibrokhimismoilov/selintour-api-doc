@@ -1,5 +1,7 @@
 # SelinTour API
 
+### `*` is REQUIRED field
+
 <hr />
 
 ### Settings CRUD
@@ -23,7 +25,7 @@
   description_en: string;
   link: string;
   alias: string;
-  slug: string;  // on update don't edit slug field
+  *slug: string;  // on update don't edit slug field
   status: number;  // bg default 1
   creaetd_at: Date;
   updated_at: Date;
@@ -45,9 +47,9 @@
 ```JS
 {
   id: number;
-  title_uz: string;
-  title_ru: string;
-  title_en: string;
+  *title_uz: string;
+  *title_ru: string;
+  *title_en: string;
   status: number;  // bg default 1
   creaetd_at: Date;
   updated_at: Date;
@@ -69,10 +71,10 @@
 ```JS
 {
   id: number;
-  title_uz: string;
-  title_ru: string;
-  title_en: string;
-  category_id: number;
+  *title_uz: string;
+  *title_ru: string;
+  *title_en: string;
+  *category_id: number;
   status: number; // bg default 1
   creaetd_at: Date;
   updated_at: Date;
@@ -94,12 +96,12 @@
 ```JS
 {
   id: number;
-  title_uz: string;
-  title_ru: string;
-  title_en: string;
-  description_uz: string;
-  description_ru: string;
-  description_en: string;
+  *title_uz: string;
+  *title_ru: string;
+  *title_en: string;
+  *description_uz: string;
+  *description_ru: string;
+  *description_en: string;
   sub_category_ids: number[]; // [1, 2, 3]
   status: number; // bg default 1
   creaetd_at: Date;
@@ -132,7 +134,7 @@
   content_ru: string; // unlimited size
   content_en: string; // unlimited size
   link: string;
-  slug: string;  // on update don't edit slug field
+  *slug: string;  // on update don't edit slug field
   status: number;  // bg default 1
   file_ids: number[]; // example: [1, 2, 3]
   files: [file urls]; // example: ["https...jpg", "https...png", "https...svg"]
