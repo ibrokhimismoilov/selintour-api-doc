@@ -25,8 +25,8 @@
   description_en: string;
   link: string;
   alias: string;
-  *slug: string;  // on update don't edit slug field
-  status: number;  // byDefault 1
+  *slug: string;        // on update don't edit slug field
+  status: number;       // byDefault 1
   creaetd_at: DATE;
   updated_at: DATE;
 }
@@ -103,7 +103,7 @@
   *description_ru: string;
   *description_en: string;
   sub_category_ids: number[]; // [1, 2, 3]
-  status: number; // byDefault 1
+  status: number;             // byDefault 1
   creaetd_at: DATE;
   updated_at: DATE;
 }
@@ -130,15 +130,15 @@
   description_uz: string;
   description_ru: string;
   description_en: string;
-  content_uz: string; // unlimited size
-  content_ru: string; // unlimited size
-  content_en: string; // unlimited size
+  content_uz: string;       // unlimited size
+  content_ru: string;       // unlimited size
+  content_en: string;       // unlimited size
   link: string;
-  *slug: string;  // on update don't edit slug field
-  status: number;  // byDefault 1
-  file_ids: number[]; // example: [1, 2, 3]
-  files: [file urls]; // example: ["https...jpg", "https...png", "https...svg"]
-  checked_list: string[];  // ["...", "..."]
+  *slug: string;            // on update don't edit slug field
+  status: number;           // byDefault 1
+  file_ids: number[];       // example: [1, 2, 3]
+  files: [file urls];       // example: ["https...jpg", "https...png", "https...svg"]
+  checked_list: string[];   // ["...", "..."]
   creaetd_at: DATE;
   updated_at: DATE;
 }
@@ -179,10 +179,10 @@
   id: number;
   *first_name: string;
   last_name: string;
-  birth_date: DATE; // 24.01.1998
+  birth_date: DATE;         // 24.01.1998
   *email: string;
   *phone: string;
-  *country_id: number; // from /api/country
+  *country_id: number;      // from /api/country
   region: string;
   *password: string;
   *repeat_password: string;
@@ -229,13 +229,14 @@
   *description_uz: string;
   *description_ru: string;
   *description_en: string;
-  top: number;  // 0 | 1 => byDefault 1
-  tour_count: number; // auto generate joined tours count
-  sub_category_ids: number[]; // [1, 2, 3]
-  cauntry_ids: number[]; // [1, 2, 3]
-  status: number;  // byDefault 1
-  *file_id: number; // example: 1
-  files: fileUrls; // example: "https...jpg"
+  *description_en: string;
+  top: number;                  // 0 | 1 => byDefault 1
+  tour_count: number;           // auto generate joined tours count
+  sub_category_ids: number[];   // [1, 2, 3]
+  cauntry_ids: number[];        // [1, 2, 3]
+  status: number;               // byDefault 1
+  *file_id: number;             // example: 1
+  files: fileUrls;              // example: "https...jpg"
   creaetd_at: DATE;
   updated_at: DATE;
 }
@@ -259,7 +260,34 @@
   *title_uz: string;
   *title_ru: string;
   *title_en: string;
-  status: number;  // byDefault 1
+  status: number;     // byDefault 1
+  creaetd_at: DATE;
+  updated_at: DATE;
+}
+```
+
+<hr />
+
+### Tour Itenirary CRUD
+
+<ul>
+  <li>GET => LIST <code>/api/tour-itenirary</code></li>
+  <li>GET => ONE <code>/api/tour-itenirary/[id]</code></li>
+  <li>POST => CREATE <code>/api/tour-itenirary/create</code></li>
+  <li>PUT => UPDATE <code>/api/tour-itenirary/update?id=1</code></li>
+  <li>DELETE => DELETE <code>/api/tour-itenirary/delete?id=1</code></li>
+</ul>
+
+```JS
+{
+  id: number;
+  *title_uz: string;
+  *title_ru: string;
+  *title_en: string;
+  *description_uz: string;
+  *description_ru: string;
+  *description_en: string;
+  status: number;           // byDefault 1
   creaetd_at: DATE;
   updated_at: DATE;
 }
@@ -283,19 +311,19 @@
 {
   id: number;
 
-  type: "latest" | "top" | "discounted" | "popular" // popular => maxLiked // byDefault "latest"
+  type: "new" | "top" | "discount" | "popular" // popular => maxLiked // byDefault "new"
 
-  destination_ids: string; // "1,2,3"
+  destination_ids: string;      // "1,2,3"
 
-  sub_category_ids: string; // "1,2,3"
+  sub_category_ids: string;     // "1,2,3"
 
-  country_ids: string; // "1,2,3"
+  country_ids: string;          // "1,2,3"
 
   begin_people_count: number;
   end_people_count: number;
 
-  begin_date: string; // 11.10.2024
-  end_date: string; // 29.11.2024
+  begin_date: string;           // 11.10.2024
+  end_date: string;             // 29.11.2024
 
   begin_price: number;
   end_price: number;
@@ -308,18 +336,32 @@
   *title_uz: string;
   *title_ru: string;
   *title_en: string;
-  *description_uz: string;
-  *description_ru: string;
-  *description_en: string;
-  top: number;  // 0 | 1 => byDefault 1
-  tour_count: number; // auto generate joined tours count
-  sub_category_ids: number[]; // [1, 2, 3]
-  cauntry_ids: number[]; // [1, 2, 3]
-  status: number;  // byDefault 1
-  *file_id: number; // example: 1
-  files: fileUrls; // example: "https...jpg"
+  description_uz: string;
+  description_ru: string;
+  description_en: string;
+  content_uz: string;           // size unlimited
+  content_ru: string;           // size unlimited
+  content_en: string;           // size unlimited
+  *price: number;
+  discount_price: number;
+  average_grade: number;        // 4.4
+  grades_count: number;         // 44
+  duration_day: number;
+  employe_phone_link: string;
+  employe_phone_title: string;
+  employe_email_link: string;
+  employe_email_title: string;
+  itenirary_ids: number[];      // [1, 2, 3]
+  isTop: number;                // 0 | 1 => byDefault 1
+  sub_category_ids: number[];   // [1, 2, 3]
+  cauntry_ids: number[];        // [1, 2, 3]
+  status: number;               // byDefault 1
+  *file_ids: number;            // example: [1, 2, 3]
+  files: [fileUrls];            // example: ["https...jpg", "https...jpg", "https...jpg"...]
   creaetd_at: DATE;
   updated_at: DATE;
+  // isLidked...
+  // lidkes...
 }
 ```
 
