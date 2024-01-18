@@ -106,7 +106,30 @@
   link: string;
   slug: string;  // on update don't edit slug field
   status: number;  // bg default 1
+  file_ids: number[]; // example: [1, 2, 3]
+  files: [file urls]; // example: ["https...jpg", "https...png", "https...svg"]
   creaetd_at: Date;
   updated_at: Date;
+}
+```
+
+<hr/>
+
+### Countries CRUD
+
+<ul>
+  <li>GET => LIST <code>/api/country</code></li>
+  <!-- <li>GET => ONE <code>/api/country/[id]</code></li> -->
+  <!-- <li>POST => CREATE <code>/api/country/create</code></li> -->
+  <!-- <li>PUT => UPDATE <code>/api/country/update?id=1</code></li> -->
+  <!-- <li>DELETE => DELETE <code>/api/country/delete?id=1</code></li> -->
+</ul>
+
+```JS
+{
+  id: number;
+  title_uz: string;
+  title_ru: string;
+  title_en: string;
 }
 ```
