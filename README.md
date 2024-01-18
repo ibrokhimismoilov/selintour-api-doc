@@ -243,6 +243,30 @@
 
 <hr />
 
+### Tour includes CRUD
+
+<ul>
+  <li>GET => LIST <code>/api/tour-include</code></li>
+  <li>GET => ONE <code>/api/tour-include/[id]</code></li>
+  <li>POST => CREATE <code>/api/tour-include/create</code></li>
+  <li>PUT => UPDATE <code>/api/tour-include/update?id=1</code></li>
+  <li>DELETE => DELETE <code>/api/tour-include/delete?id=1</code></li>
+</ul>
+
+```JS
+{
+  id: number;
+  *title_uz: string;
+  *title_ru: string;
+  *title_en: string;
+  status: number;  // byDefault 1
+  creaetd_at: DATE;
+  updated_at: DATE;
+}
+```
+
+<hr />
+
 ### Tours CRUD
 
 <ul>
@@ -259,15 +283,23 @@
 {
   id: number;
 
-  destination_id: number;
+  type: "latest" | "top" | "discounted" | "popular" // popular => maxLiked // byDefault "latest"
 
-  sub_category_id: number;
+  destination_ids: string; // "1,2,3"
+
+  sub_category_ids: string; // "1,2,3"
+
+  country_ids: string; // "1,2,3"
 
   begin_people_count: number;
   end_people_count: number;
 
-  begin_date: number;
-  end_date: number;
+  begin_date: string; // 11.10.2024
+  end_date: string; // 29.11.2024
+
+  begin_price: number;
+  end_price: number;
+
 }
 
 // data
