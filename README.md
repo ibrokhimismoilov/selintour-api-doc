@@ -1,6 +1,6 @@
 # SelinTour API
 
-## Settings Crud
+## Settings CRUD
 
 <hr />
 
