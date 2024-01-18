@@ -4,11 +4,13 @@
 
 ### Settings CRUD
 
-GET => LIST `/api/settings`
-GET => ONE `/api/settings/[slug]`
-POST => CREATE `/api/settings/create`
-PUT => UPDATE `/api/settings/update?id=1`
-DELETE => DELETE `/api/settings/delete?id=1`
+<ul>
+  <li>GET => LIST `/api/settings`</li>
+  <li>GET => ONE `/api/settings/[slug]`</li>
+  <li>POST => CREATE `/api/settings/create`</li>
+  <li>PUT => UPDATE `/api/settings/update?id=1`</li>
+  <li>DELETE => DELETE `/api/settings/delete?id=1`</li>
+</ul>
 
 ```JS
 {
@@ -32,11 +34,13 @@ DELETE => DELETE `/api/settings/delete?id=1`
 
 ### Categories CRUD
 
-GET => LIST `/api/category`
-GET => ONE `/api/category/[id]`
-POST => CREATE `/api/category/create`
-PUT => UPDATE `/api/category/update?id=1`
-DELETE => DELETE `/api/category/delete?id=1`
+<ul>
+  <li>GET => LIST `/api/category`</li>
+  <li>GET => ONE `/api/category/[id]`</li>
+  <li>POST => CREATE `/api/category/create`</li>
+  <li>PUT => UPDATE `/api/category/update?id=1`</li>
+  <li>DELETE => DELETE `/api/category/delete?id=1`</li>
+</ul>
 
 ```JS
 {
@@ -52,11 +56,13 @@ DELETE => DELETE `/api/category/delete?id=1`
 
 ### SubCategories CRUD
 
-GET => LIST `/api/sub-category?category_id=1`
-GET => ONE `/api/sub-category/[id]`
-POST => CREATE `/api/sub-category/create?category_id=1`
-PUT => UPDATE `/api/sub-category/update?id=1`
-DELETE => DELETE `/api/sub-category/delete?id=1`
+<ul>
+  <li>GET => LIST `/api/sub-category?category_id=1`</li>
+  <li>GET => ONE `/api/sub-category/[id]`</li>
+  <li>POST => CREATE `/api/sub-category/create?category_id=1`</li>
+  <li>PUT => UPDATE `/api/sub-category/update?id=1`</li>
+  <li>DELETE => DELETE `/api/sub-category/delete?id=1`</li>
+</ul>
 
 ```JS
 {
