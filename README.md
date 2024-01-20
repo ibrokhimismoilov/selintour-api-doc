@@ -229,14 +229,14 @@
   *description_uz: string;
   *description_ru: string;
   *description_en: string;
-  *description_en: string;
   top: number;                  // 0 | 1 => byDefault 1
+  status: number;               // byDefault 1
   tour_count: number;           // auto generate joined tours count
   sub_category_ids: number[];   // [1, 2, 3]
   cauntry_ids: number[];        // [1, 2, 3]
-  status: number;               // byDefault 1
   *file_id: number;             // example: 1
-  files: fileUrls;              // example: "https...jpg"
+  file: fileUrl;                // example: "https...jpg"
+  published_at: DATE;
   creaetd_at: DATE;
   updated_at: DATE;
 }
