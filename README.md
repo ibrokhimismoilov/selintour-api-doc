@@ -12,14 +12,6 @@
 
 ---
 
-<br/>
-<br/>
-================================================================================
-<br/>
-<br/>
-
-<hr />
-
 ### Settings CRUD
 
 <ul>
@@ -48,7 +40,7 @@
 }
 ```
 
-<hr />
+---
 
 ### Categories CRUD
 
@@ -72,7 +64,7 @@
 }
 ```
 
-<hr />
+---
 
 ### SubCategories CRUD
 
@@ -179,50 +171,9 @@
 
 <br/>
 <br/>
-================================================================================
-<br/>
-<br/>
 
-### AUTH REGISTER
+---
 
-<ul>
-  <li>POST => REGISTER <code>/api/auth/register</code></li>
-  // CRUD is coming soon
-</ul>
-
-```JS
-{
-  id: number;
-  *first_name: string;
-  last_name: string;
-  birth_date: DATE;         // 24.01.1998
-  *email: string;
-  *phone: string;
-  *country_id: number;      // from /api/country
-  region: string;
-  *password: string;
-  *repeat_password: string;
-}
-```
-
-<hr />
-
-### AUTH LOGIN
-
-<ul>
-  <li>POST => LOGIN <code>/api/auth/login</code></li>
-</ul>
-
-```JS
-{
-  *email: string;
-  *password: string;
-}
-```
-
-<br/>
-<br/>
-================================================================================
 <br/>
 <br/>
 
@@ -252,7 +203,7 @@
 }
 ```
 
-<hr />
+---
 
 ### Destinations CRUD
 
@@ -286,7 +237,7 @@
 }
 ```
 
-<hr />
+---
 
 ### Tour includes CRUD
 
@@ -310,7 +261,7 @@
 }
 ```
 
-<hr />
+---
 
 ### Tour Itenirary CRUD
 
@@ -337,7 +288,7 @@
 }
 ```
 
-<hr />
+---
 
 ### Tours CRUD
 
@@ -407,4 +358,47 @@
 }
 ```
 
-<hr />
+<br/>
+<br/>
+
+---
+
+<br/>
+<br/>
+
+### AUTH REGISTER
+
+<ul>
+  <li>POST => REGISTER <code>/api/auth/register</code></li>
+  // CRUD is coming soon
+</ul>
+
+```JS
+{
+  id: number;
+  *first_name: string;
+  last_name: string;
+  birth_date: DATE;         // 24.01.1998
+  *email: string;
+  *phone: string;
+  *country_id: number;      // from /api/country
+  region: string;
+  *password: string;
+  *repeat_password: string;
+}
+```
+
+---
+
+### AUTH LOGIN
+
+<ul>
+  <li>POST => LOGIN <code>/api/auth/login</code></li>
+</ul>
+
+```JS
+{
+  *email: string;
+  *password: string;
+}
+```
