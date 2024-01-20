@@ -404,3 +404,44 @@
 ```
 
 ---
+
+### USER CRUD
+
+<ul>
+  <li>GET => LIST <code>/api/user</code></li>
+  <li>GET => ONE <code>/api/user/[id]</code></li>
+  <li>POST => CREATE <code>/api/user/create</code></li>
+  <li>PUT => UPDATE <code>/api/user/update?id=1</code></li>
+  <li>DELETE => DELETE <code>/api/user/delete?id=1</code></li>
+</ul>
+
+```JS
+
+
+// filter params
+{
+  id: number;
+  role: "USER" | "MODERATOR" | "ADMIN"
+}
+
+// data
+{
+  id: number;
+  *first_name: string;
+  last_name: string;
+  birth_date: DATE;             // 24.01.1998
+  *email: string;
+  *phone: string;
+  *country_id: number;          // from /api/country
+  region: string;
+  *password: string;
+  *repeat_password: string;
+  file_id: number;              // example: 1
+  file: fileUrl;                // example: "https...jpg"
+  status: number;               // byDefault 1
+  role: string;                 // "USER" | "MODERATOR" | "ADMIN" => default "USER"
+  token: string;                // JWT token
+  creaetd_at: DATE;
+  updated_at: DATE;
+}
+```
