@@ -370,7 +370,6 @@
 
 <ul>
   <li>POST => REGISTER <code>/api/auth/register</code></li>
-  // CRUD is coming soon
 </ul>
 
 ```JS
@@ -443,5 +442,6 @@
   token: string;                // JWT token
   creaetd_at: DATE;
   updated_at: DATE;
+  // profile...
 }
 ```
