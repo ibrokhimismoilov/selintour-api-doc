@@ -1,6 +1,22 @@
 # SelinTour API
 
-### `*` is REQUIRED field
+---
+
+- `*` is REQUIRED field
+
+- All statuses (by default 1)
+  0 => inactive
+  1 => active
+
+- todo...
+
+---
+
+<br/>
+<br/>
+================================================================================
+<br/>
+<br/>
 
 <hr />
 
@@ -210,6 +226,37 @@
 <br/>
 <br/>
 
+### Reviews CRUD
+
+<ul>
+  <li>GET => LIST <code>/api/reviews</code></li>
+  <li>GET => ONE <code>/api/reviews/[id]</code></li>
+  <li>POST => CREATE <code>/api/reviews/create</code></li>
+  <li>PUT => UPDATE <code>/api/reviews/update?id=1</code></li>
+  <li>DELETE => DELETE <code>/api/reviews/delete?id=1</code></li>
+</ul>
+
+```JS
+{
+  id: number;
+  *title_uz: string;
+  *title_ru: string;
+  *title_en: string;
+  *description_uz: string;
+  *description_ru: string;
+  *description_en: string;
+  point: number;                // 0 | 1 | 2 | 3 | 4 | 5
+  top: number;                  // 0 | 1 => byDefault 1
+  status: number;               // byDefault 1
+  *file_id: number;             // example: 1
+  file: fileUrl;                // example: "https...jpg"
+  creaetd_at: DATE;
+  updated_at: DATE;
+}
+```
+
+<hr />
+
 ### Destinations CRUD
 
 <ul>
@@ -271,11 +318,11 @@
 ### Tour Itenirary CRUD
 
 <ul>
-  <li>GET => LIST <code>/api/tour-itenirary</code></li>
-  <li>GET => ONE <code>/api/tour-itenirary/[id]</code></li>
-  <li>POST => CREATE <code>/api/tour-itenirary/create</code></li>
-  <li>PUT => UPDATE <code>/api/tour-itenirary/update?id=1</code></li>
-  <li>DELETE => DELETE <code>/api/tour-itenirary/delete?id=1</code></li>
+  <li>GET => LIST <code>/api/tour-itenirary-plan</code></li>
+  <li>GET => ONE <code>/api/tour-itenirary-plan/[id]</code></li>
+  <li>POST => CREATE <code>/api/tour-itenirary-plan/create</code></li>
+  <li>PUT => UPDATE <code>/api/tour-itenirary-plan/update?id=1</code></li>
+  <li>DELETE => DELETE <code>/api/tour-itenirary-plan/delete?id=1</code></li>
 </ul>
 
 ```JS
@@ -351,10 +398,11 @@
   employe_phone_title: string;
   employe_email_link: string;
   employe_email_title: string;
-  itenirary_ids: number[];      // [1, 2, 3]
+  itenirary_plan_ids: number[]; // [1, 2, 3]
   isTop: number;                // 0 | 1 => byDefault 1
   sub_category_ids: number[];   // [1, 2, 3]
   cauntry_ids: number[];        // [1, 2, 3]
+  review_ids: number[];         // [1, 2, 3]
   status: number;               // byDefault 1
   *file_ids: number;            // example: [1, 2, 3]
   files: [fileUrls];            // example: ["https...jpg", "https...jpg", "https...jpg"...]
