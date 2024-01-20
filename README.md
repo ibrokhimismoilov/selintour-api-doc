@@ -158,14 +158,21 @@
 
 <ul>
   <li>GET => LIST <code>/api/country</code></li>
+  <li>GET => ONE <code>/api/country/[slug]</code></li>
+  <li>POST => CREATE <code>/api/country/create</code></li>
+  <li>PUT => UPDATE <code>/api/country/update?id=1</code></li>
+  <li>DELETE => DELETE <code>/api/country/delete?id=1</code></li>
 </ul>
 
 ```JS
 {
   id: number;
-  title_uz: string;
-  title_ru: string;
-  title_en: string;
+  status: number;
+  *title_uz: string;
+  *title_ru: string;
+  *title_en: string;
+  creaetd_at: DATE;
+  updated_at: DATE;
 }
 ```
 
