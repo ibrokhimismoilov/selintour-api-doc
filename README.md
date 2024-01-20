@@ -226,30 +226,27 @@
 <br/>
 <br/>
 
-### Reviews CRUD
+### Testimonials CRUD
 
 <ul>
-  <li>GET => LIST <code>/api/reviews</code></li>
-  <li>GET => ONE <code>/api/reviews/[id]</code></li>
-  <li>POST => CREATE <code>/api/reviews/create</code></li>
-  <li>PUT => UPDATE <code>/api/reviews/update?id=1</code></li>
-  <li>DELETE => DELETE <code>/api/reviews/delete?id=1</code></li>
+  <li>GET => LIST <code>/api/testimonials</code></li>
+  <li>GET => ONE <code>/api/testimonials/[id]</code></li>
+  <li>POST => CREATE <code>/api/testimonials/create</code></li>
+  <li>PUT => UPDATE <code>/api/testimonials/update?id=1</code></li>
+  <li>DELETE => DELETE <code>/api/testimonials/delete?id=1</code></li>
 </ul>
 
 ```JS
 {
   id: number;
-  *title_uz: string;
-  *title_ru: string;
-  *title_en: string;
-  *description_uz: string;
-  *description_ru: string;
-  *description_en: string;
-  point: number;                // 0 | 1 | 2 | 3 | 4 | 5
+  name: string;
+  user_id: number;
+  *comment: string;
+  *rate: number;                // 0 | 1 | 2 | 3 | 4 | 5
   top: number;                  // 0 | 1 => byDefault 1
   status: number;               // byDefault 1
-  *file_id: number;             // example: 1
-  file: fileUrl;                // example: "https...jpg"
+  // *file_id: number;          // example: 1
+  // file: fileUrl;             // example: "https...jpg"
   creaetd_at: DATE;
   updated_at: DATE;
 }
@@ -380,6 +377,8 @@
 // data
 {
   id: number;
+  *price: number;
+  discount_price: number;
   *title_uz: string;
   *title_ru: string;
   *title_en: string;
@@ -389,27 +388,22 @@
   content_uz: string;           // size unlimited
   content_ru: string;           // size unlimited
   content_en: string;           // size unlimited
-  *price: number;
-  discount_price: number;
-  average_grade: number;        // 4.4
-  grades_count: number;         // 44
-  duration_day: number;
-  employe_phone_link: string;
-  employe_phone_title: string;
-  employe_email_link: string;
-  employe_email_title: string;
-  itenirary_plan_ids: number[]; // [1, 2, 3]
-  isTop: number;                // 0 | 1 => byDefault 1
-  sub_category_ids: number[];   // [1, 2, 3]
+  rate_count: number;           // 44
+  avg_rate: number;             // 4.4
+  duration_days: number;
+  employe_id: number;
   cauntry_ids: number[];        // [1, 2, 3]
-  review_ids: number[];         // [1, 2, 3]
-  status: number;               // byDefault 1
+  testimonial_ids: number[];    // [1, 2, 3]
+  sub_category_ids: number[];   // [1, 2, 3]
+  itenirary_plan_ids: number[]; // [1, 2, 3]
   *file_ids: number;            // example: [1, 2, 3]
   files: [fileUrls];            // example: ["https...jpg", "https...jpg", "https...jpg"...]
+  top: number;                  // 0 | 1 => byDefault 1
+  status: number;               // byDefault 1
   creaetd_at: DATE;
   updated_at: DATE;
   // isLidked...
-  // lidkes...
+  // lidked_count...
 }
 ```
 
