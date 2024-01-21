@@ -117,7 +117,31 @@
 }
 ```
 
-<hr/>
+---
+
+### PageCheckedList CRUD
+
+<ul>
+  <li>GET => LIST <code>/api/page-checked-list</code></li>
+  <li>GET => ONE <code>/api/page-checked-list/[id]</code></li>
+  <li>POST => CREATE <code>/api/page-checked-list/create</code></li>
+  <li>PUT => UPDATE <code>/api/page-checked-list/update?id=1</code></li>
+  <li>DELETE => DELETE <code>/api/page-checked-list/delete?id=1</code></li>
+</ul>
+
+```JS
+{
+  id: number;
+  *content_uz: string;           // unlimited size
+  *content_ru: string;           // unlimited size
+  *content_en: string;           // unlimited size
+  status: number;                // byDefault 1
+  creaetd_at: DATE;
+  updated_at: DATE;
+}
+```
+
+---
 
 ### Page CRUD
 
@@ -138,21 +162,23 @@
   description_uz: string;
   description_ru: string;
   description_en: string;
-  content_uz: string;       // unlimited size
-  content_ru: string;       // unlimited size
-  content_en: string;       // unlimited size
+  content_uz: string;           // unlimited size
+  content_ru: string;           // unlimited size
+  content_en: string;           // unlimited size
   link: string;
-  *slug: string;            // on update don't edit slug field
-  status: number;           // byDefault 1
-  file_ids: number[];       // example: [1, 2, 3]
-  files: [file urls];       // example: ["https...jpg", "https...png", "https...svg"]
-  checked_list: string[];   // ["...", "..."]
+  *slug: string;                // on update don't edit slug field
+  status: number;               // byDefault 1
+  file_ids: number[];           // example: [1, 2, 3]
+  files: [file urls];           // example: ["https...jpg", "https...png", "https...svg"]
+  checked_list_ids: nummber[];  // [1, 2]
   creaetd_at: DATE;
   updated_at: DATE;
 }
 ```
 
 <hr/>
+
+---
 
 ### Countries CRUD
 
@@ -191,12 +217,12 @@
 ```JS
 {
   id: number;
-  name: string;
   user_id: number;
   *comment: string;
   *rate: number;                // 0 | 1 | 2 | 3 | 4 | 5
   top: number;                  // 0 | 1 => byDefault 1
   status: number;               // byDefault 1
+  // name: string;
   // *file_id: number;          // example: 1
   // file: fileUrl;             // example: "https...jpg"
   creaetd_at: DATE;
