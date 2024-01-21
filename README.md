@@ -35,6 +35,8 @@
   alias: string;
   *slug: string;        // on update don't edit slug field
   status: number;       // byDefault 1
+  file_id: number;      // example: 1
+  file: fileUrl;        // example: "https...jpg"
   creaetd_at: DATE;
   updated_at: DATE;
 }
