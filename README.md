@@ -12,6 +12,76 @@
 
 ---
 
+### File CRUD public api
+
+<ul>
+  <li>POST => CREATE <code>/api/files/create</code></li>
+</ul>
+
+```JS
+{
+  files: FORMDATA;
+}
+```
+
+<ul>
+  <li>GET => LIST <code>/api/files</code></li>
+  <li>GET => ONE <code>/api/files/?file_id=1</code></li>
+  <li>DELETE => DELETE <code>/api/files/delete?file_id=1</code></li>
+</ul>
+
+```JS
+
+[
+  {
+    file_id: number;
+    orgUrl: "https://...",
+    size: number, // 10240 bytes
+    type: string, // file Type
+    src: {
+      thumb: "https://..."
+      large: "https://..."
+    }
+  }
+]
+```
+
+### File CRUD private api
+
+<ul>
+  <li>POST => CREATE <code>/api/files/create</code></li>
+</ul>
+
+```JS
+{
+  file: FORMDATA;
+}
+```
+
+<ul>
+  <li>GET => LIST <code>/api/files/private</code></li>
+  <li>GET => ONE <code>/api/files/private?file_id=1</code></li>
+  <li>DELETE => DELETE <code>/api/files/private/delete?file_id=1</code></li>
+</ul>
+
+```JS
+
+[
+  {
+    file_id: number;
+    orgUrl: "https://...",
+    size: number, // 10240 bytes
+    type: string, // file Type
+    src: {
+      thumb: "https://..."
+      large: "https://..."
+    }
+  }
+]
+```
+
+---
+
 ### Settings CRUD
 
 <ul>
@@ -357,6 +427,7 @@
 // data
 {
   id: number;
+  *tour_number: string;
   *price: number;
   discount_price: number;
   *title_uz: string;
@@ -368,6 +439,7 @@
   content_uz: string;           // size unlimited
   content_ru: string;           // size unlimited
   content_en: string;           // size unlimited
+  people_count: number;
   rate_count: number;           // 44
   avg_rate: number;             // 4.4
   duration_days: number;
