@@ -319,8 +319,6 @@
 }
 ```
 
-<hr/>
-
 ---
 
 ### Destinations CRUD [open => GET_LIST, GET_ONE]
