@@ -11,6 +11,11 @@
   - barcha getAll API larda status 1 bo'lganlari qaytadi.
   - Qachonki {status: 0} param yuborilsa barchasi qaytadi.
 
+- Barcha GET LIST lar pagination bo'lishi kerak va quyidagi paramlarni qa'bul qilsin
+
+  - page: number
+  - size: number
+
 - Barcha Create & Update larda
 
   - fileId: 1 => ketgan bo'lsa getOneAPIda { file: FILE_DTO }
@@ -47,10 +52,10 @@
 
 ---
 
-### File CRUD public api
+### File CRUD [open => POST_CREATE]
 
 <ul>
-  <li>POST => CREATE <code>/api/files/create</code></li>
+  <li>POST => CREATE <code>/api/files/create?{type}</code></li>
 </ul>
 
 ```JS
@@ -58,72 +63,47 @@
 {
   method: "post",
   url: "/api/files/create",
-  data: { files: FORMDATA },
-  headers: { "Content-Type": "multipart/form-data" },
+  data: FORMDATA,           // { file: binar }
+  headers: {
+    params: {
+      type: number;         // 1 | 2 | 3 | 4
+    },
+    "Content-Type": "multipart/form-data",
+  },
 }
 
 ```
 
 <ul>
-  <li>GET => LIST <code>/api/files</code></li>
+  <li>GET => LIST <code>/api/files?{type}</code></li>
   <li>GET => ONE <code>/api/files?{fileId}</code></li>
   <li>DELETE => DELETE <code>/api/files/delete?{fileId}</code></li>
 </ul>
 
 ```JS
 
-[
-  {
-    fileId: number;
-    orgUrl: "https://...",
-    size: number, // 10240 bytes
-    type: string, // file Type
-    name: string, // fileName.type
-    src: {
-      thumb: "https://..."
-      large: "https://..."
-    }
-  }
-]
-```
-
-### File CRUD private api
-
-<ul>
-  <li>POST => CREATE <code>/api/files/create</code></li>
-</ul>
-
-```JS
+// params
 {
-  file: FORMDATA;
+  type: number, // 1 | 2 | 3 | 4
 }
-```
 
-<ul>
-  <li>GET => LIST <code>/api/files/private</code></li>
-  <li>GET => ONE <code>/api/files/private?fileId=1</code></li>
-  <li>DELETE => DELETE <code>/api/files/private/delete?fileId=1</code></li>
-</ul>
-
-```JS
-
+// data
 [
   {
+    size: number, // 10240 bytes
+    type: string, // fileType => images
+    name: string, // fileName.type
     fileId: number;
     orgUrl: "https://...",
-    size: number, // 10240 bytes
-    type: string, // file Type
     src: {
-      thumb: "https://..."
-      large: "https://..."
+      thumb: "https://..." // height: 300px
+      large: "https://..." // height: 2400px
     }
   }
 ]
 ```
 
----
-
-### Countries CRUD
+### Countries CRUD [open => GET_LIST]
 
 <ul>
   <li>GET => LIST <code>/api/country</code></li>
@@ -147,7 +127,7 @@
 
 ---
 
-### Categories CRUD
+### Categories CRUD [open => GET_LIST]
 
 <ul>
   <li>GET => LIST <code>/api/category</code> </li>
@@ -172,7 +152,7 @@
 
 ---
 
-### SubCategories CRUD
+### SubCategories CRUD [open => GET_LIST]
 
 <ul>
   <li>GET => LIST <code>/api/sub-category</code></li>
@@ -198,7 +178,7 @@
 
 <hr/>
 
-### FAQ CRUD
+### FAQ CRUD [open => GET_LIST, GET_ONE_GROUP]
 
 <ul>
   <li>GET => LIST <code>/api/faq</code></li>
@@ -226,7 +206,7 @@
 
 ---
 
-### Testimonials CRUD
+### Testimonials CRUD [open => GET_LIST, GET_ONE]
 
 <ul>
   <li>GET => LIST <code>/api/testimonials</code></li>
@@ -251,7 +231,7 @@
 
 ---
 
-### Settings CRUD
+### Settings CRUD [open => GET_LIST, GET_ONE]
 
 <ul>
   <li>GET => LIST <code>/api/settings</code></li>
@@ -282,7 +262,7 @@
 
 ---
 
-### PageCheckedList CRUD
+### PageCheckedList CRUD [open => GET_LIST, GET_ONE_GROUP]
 
 <ul>
   <li>GET => LIST <code>/api/page-checked-list</code></li>
@@ -306,7 +286,7 @@
 
 ---
 
-### Page CRUD
+### Page CRUD [open => GET_LIST, GET_ONE]
 
 <ul>
   <li>GET => LIST <code>/api/page</code></li>
@@ -343,7 +323,7 @@
 
 ---
 
-### Destinations CRUD
+### Destinations CRUD [open => GET_LIST, GET_ONE]
 
 <ul>
   <li>GET => LIST <code>/api/destination</code></li>
@@ -376,7 +356,7 @@
 
 ---
 
-### Tour includes CRUD
+### Tour includes CRUD [open => GET_LIST, GET_ONE]
 
 <ul>
   <li>GET => LIST <code>/api/tour-include</code></li>
@@ -400,7 +380,7 @@
 
 ---
 
-### Tour Itenirary CRUD
+### Tour Itenirary CRUD [open => GET_LIST, GET_ONE]
 
 <ul>
   <li>GET => LIST <code>/api/tour-itenirary-plan</code></li>
@@ -427,7 +407,7 @@
 
 ---
 
-### Tours CRUD
+### Tours CRUD [open => GET_LIST]
 
 <ul>
   <li>GET => LIST <code>/api/tour</code></li>
@@ -506,7 +486,7 @@
 <br/>
 <br/>
 
-### CONTACT
+### CONTACT [open => POST_CREATE]
 
 <ul>
   <li>GET => LIST <code>/api/contact</code></li>
@@ -531,7 +511,7 @@
 
 ---
 
-### AUTH REGISTER
+### AUTH REGISTER [open]
 
 <ul>
   <li>POST => REGISTER <code>/api/auth/register</code></li>
@@ -554,7 +534,7 @@
 
 ---
 
-### AUTH LOGIN
+### AUTH LOGIN [open]
 
 <ul>
   <li>POST => LOGIN <code>/api/auth/login</code></li>
