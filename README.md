@@ -43,9 +43,6 @@
   - includeIds: [1, 2] => ketgan bo'lsa getOneAPIda { includes: [TOUR_INCLUDE_DTO, TOUR_INCLUDE_DTO...] }
   - noIncludeIds: [1, 2] => ketgan bo'lsa getOneAPIda { noIncludes: [TOUR_INCLUDE_DTO, TOUR_INCLUDE_DTO...] }
 
-  - includeIds: [1, 2] => ketgan bo'lsa getOneAPIda { includes: [TOUR_INCLUDE_DTO, TOUR_INCLUDE_DTO...] }
-  - noIncludeIds: [1, 2] => ketgan bo'lsa getOneAPIda { noIncludes: [TOUR_INCLUDE_DTO, TOUR_INCLUDE_DTO...] }
-
   - itineraryPlanIds: [1, 2] => ketgan bo'lsa getOneAPIda { itineraryPlans: [TOUR_ITENERARRY_DTO, TOUR_ITENERARRY_DTO...] }
 
 ---
