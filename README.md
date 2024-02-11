@@ -8,7 +8,45 @@
   0 => inactive
   1 => active
 
-- todo...
+  - barcha getAll API larda status 1 bo'lganlari qaytadi.
+  - Qachonki {status: 0} param yuborilsa barchasi qaytadi.
+
+- Barcha Create & Update larda
+
+  - fileId: 1 => ketgan bo'lsa getOneAPIda { file: FILE_DTO }
+  - fileIds: [1, 2] => ketgan bo'lsa getOneAPIda { files: [FILE_DTO, FILE_DTO...] }
+
+  - categoryId: 1 => ketgan bo'lsa getOneAPIda { category: CATEGORY_DTO }
+  - categoryIds: [1, 2] => ketgan bo'lsa getOneAPIda { categories: [CATEGORY_DTO, CATEGORY_DTO...] }
+
+  - subCategoryId: 1 => ketgan bo'lsa getOneAPIda { subCategory: SUB_CATEGORY_DTO }
+  - subcategoryIds: [1, 2] => ketgan bo'lsa getOneAPIda { subCategories: [SUB_CATEGORY_DTO, SUB_CATEGORY_DTO...] }
+
+  - countryId: 1 => ketgan bo'lsa getOneAPIda { country: COUNTRY_DTO }
+  - countryIds: [1, 2] => ketgan bo'lsa getOneAPIda { countries: [COUNTRY_DTO, COUNTRY_DTO...] }
+
+  - checkedListId: 1 => ketgan bo'lsa getOneAPIda { checkedList: PAGE_CHECKED_LIST_DTO }
+  - checkedListIds: [1, 2] => ketgan bo'lsa getOneAPIda { checkedLists: [PAGE_CHECKED_LIST_DTO, PAGE_CHECKED_LIST_DTO...] }
+
+  - testimonialId: 1 => ketgan bo'lsa getOneAPIda { testimonial: TESTIMONIAL_DTO }
+  - testimonialIds: [1, 2] => ketgan bo'lsa getOneAPIda { testimonials: [TESTIMONIAL_DTO, TESTIMONIAL_DTO...] }
+
+  - destinationId: 1 => ketgan bo'lsa getOneAPIda { destination: DESTINATION_DTO }
+  - destinationIds: [1, 2] => ketgan bo'lsa getOneAPIda { destinations: [DESTINATION_DTO, DESTINATION_DTO...] }
+
+  - userId: 1 => ketgan bo'lsa getOneAPIda { user: USER_DTO }
+  - userIds: [1, 2] => ketgan bo'lsa getOneAPIda { user: [USER_DTO, USER_DTO...] }
+
+  - employeeId: 1 => ketgan bo'lsa getOneAPIda { employee: USER_DTO }
+  - employeeIds: [1, 2] => ketgan bo'lsa getOneAPIda { employees: [USER_DTO, USER_DTO...] }
+
+  - includeIds: [1, 2] => ketgan bo'lsa getOneAPIda { includes: [TOUR_INCLUDE_DTO, TOUR_INCLUDE_DTO...] }
+  - noIncludeIds: [1, 2] => ketgan bo'lsa getOneAPIda { noIncludes: [TOUR_INCLUDE_DTO, TOUR_INCLUDE_DTO...] }
+
+  - includeIds: [1, 2] => ketgan bo'lsa getOneAPIda { includes: [TOUR_INCLUDE_DTO, TOUR_INCLUDE_DTO...] }
+  - noIncludeIds: [1, 2] => ketgan bo'lsa getOneAPIda { noIncludes: [TOUR_INCLUDE_DTO, TOUR_INCLUDE_DTO...] }
+
+  - itineraryPlanIds: [1, 2] => ketgan bo'lsa getOneAPIda { itineraryPlans: [TOUR_ITENERARRY_DTO, TOUR_ITENERARRY_DTO...] }
 
 ---
 
@@ -19,15 +57,20 @@
 </ul>
 
 ```JS
+
 {
-  files: FORMDATA;
+  method: "post",
+  url: "/api/files/create",
+  data: { files: FORMDATA },
+  headers: { "Content-Type": "multipart/form-data" },
 }
+
 ```
 
 <ul>
   <li>GET => LIST <code>/api/files</code></li>
-  <li>GET => ONE <code>/api/files/?fileId=1</code></li>
-  <li>DELETE => DELETE <code>/api/files/delete?fileId=1</code></li>
+  <li>GET => ONE <code>/api/files?{fileId}</code></li>
+  <li>DELETE => DELETE <code>/api/files/delete?{fileId}</code></li>
 </ul>
 
 ```JS
@@ -38,7 +81,7 @@
     orgUrl: "https://...",
     size: number, // 10240 bytes
     type: string, // file Type
-    name: string, // file Type
+    name: string, // fileName.type
     src: {
       thumb: "https://..."
       large: "https://..."
@@ -83,31 +126,23 @@
 
 ---
 
-### Settings CRUD
+### Countries CRUD
 
 <ul>
-  <li>GET => LIST <code>/api/settings</code></li>
-  <li>GET => ONE <code>/api/settings/[slug]</code></li>
-  <li>POST => CREATE <code>/api/settings/create</code></li>
-  <li>PUT => UPDATE <code>/api/settings/update?{id}</code></li>
-  <li>DELETE => DELETE <code>/api/settings/delete?{id}</code></li>
+  <li>GET => LIST <code>/api/country</code></li>
+  <li>GET => ONE <code>/api/country/[id]</code></li>
+  <li>POST => CREATE <code>/api/country/create</code></li>
+  <li>PUT => UPDATE <code>/api/country/update?{id}</code></li>
+  <li>DELETE => DELETE <code>/api/country/delete?{id}</code></li>
 </ul>
 
 ```JS
 {
   id: number;
-  titleUz: string;
-  titleRu: string;
-  titleEn: string;
-  descriptionUz: string;
-  descriptionRu: string;
-  descriptionEn: string;
-  link: string;
-  alias: string;
-  *slug: string;        // on update don't edit slug field
-  status: number;       // byDefault 1
-  fileId: number;      // example: 1
-  file: FILE_DTO;
+  status: number;
+  *titleUz: string;
+  *titleRu: string;
+  *titleEn: string;
   creaetdAt: DATE;
   updatedAt: DATE;
 }
@@ -144,9 +179,9 @@
 
 <ul>
   <li>GET => LIST <code>/api/sub-category</code></li>
+  <li>GET => LIST BY CATEGORY <code>/api/sub-category?{categorySlug}</code></li>
   <li>GET => ONE <code>/api/sub-category/[subCategoryId]</code></li>
-  <li>GET => ONE GROUP <code>/api/sub-category?{categorySlug}</code></li>
-  <li>POST => CREATE <code>/api/sub-category/create?{categorySlug}</code></li>
+  <li>POST => CREATE <code>/api/sub-category/create</code></li>
   <li>PUT => UPDATE <code>/api/sub-category/update?{id}</code></li>
   <li>DELETE => DELETE <code>/api/sub-category/delete?{id}</code></li>
 </ul>
@@ -157,7 +192,7 @@
   *titleUz: string;
   *titleRu: string;
   *titleEn: string;
-  *categorySlug: number;
+  *categorySlug: string;
   status: number; // byDefault 1
   creaetdAt: DATE;
   updatedAt: DATE;
@@ -187,6 +222,62 @@
   *descriptionEn: string;
   subcategoryIds: number[];   // [1, 2, 3]
   status: number;             // byDefault 1
+  creaetdAt: DATE;
+  updatedAt: DATE;
+}
+```
+
+---
+
+### Testimonials CRUD
+
+<ul>
+  <li>GET => LIST <code>/api/testimonials</code></li>
+  <li>GET => ONE <code>/api/testimonials/[id]</code></li>
+  <li>POST => CREATE <code>/api/testimonials/create</code></li>
+  <li>PUT => UPDATE <code>/api/testimonials/update?{id}</code></li>
+  <li>DELETE => DELETE <code>/api/testimonials/delete?{id}</code></li>
+</ul>
+
+```JS
+{
+  id: number;
+  *rate: number;                // 0 ... 2 ... 3.5 ...  5
+  *userId: number;
+  *comment: string;
+  top: number;                  // 0 | 1 => byDefault 1
+  status: number;               // byDefault 1
+  creaetdAt: DATE;
+  updatedAt: DATE;
+}
+```
+
+---
+
+### Settings CRUD
+
+<ul>
+  <li>GET => LIST <code>/api/settings</code></li>
+  <li>GET => ONE <code>/api/settings/[slug]</code></li>
+  <li>POST => CREATE <code>/api/settings/create</code></li>
+  <li>PUT => UPDATE <code>/api/settings/update?{id}</code></li>
+  <li>DELETE => DELETE <code>/api/settings/delete?{id}</code></li>
+</ul>
+
+```JS
+{
+  id: number;
+  titleUz: string;
+  titleRu: string;
+  titleEn: string;
+  descriptionUz: string;
+  descriptionRu: string;
+  descriptionEn: string;
+  link: string;
+  alias: string;
+  *slug: string;        // on update don't edit slug field
+  status: number;       // byDefault 1
+  fileId: number;      // example: 1
   creaetdAt: DATE;
   updatedAt: DATE;
 }
@@ -255,55 +346,6 @@
 
 ---
 
-### Countries CRUD
-
-<ul>
-  <li>GET => LIST <code>/api/country</code></li>
-  <li>GET => ONE <code>/api/country/[id]</code></li>
-  <li>POST => CREATE <code>/api/country/create</code></li>
-  <li>PUT => UPDATE <code>/api/country/update?{id}</code></li>
-  <li>DELETE => DELETE <code>/api/country/delete?{id}</code></li>
-</ul>
-
-```JS
-{
-  id: number;
-  status: number;
-  *titleUz: string;
-  *titleRu: string;
-  *titleEn: string;
-  creaetdAt: DATE;
-  updatedAt: DATE;
-}
-```
-
----
-
-### Testimonials CRUD
-
-<ul>
-  <li>GET => LIST <code>/api/testimonials</code></li>
-  <li>GET => ONE <code>/api/testimonials/[id]</code></li>
-  <li>POST => CREATE <code>/api/testimonials/create</code></li>
-  <li>PUT => UPDATE <code>/api/testimonials/update?{id}</code></li>
-  <li>DELETE => DELETE <code>/api/testimonials/delete?{id}</code></li>
-</ul>
-
-```JS
-{
-  id: number;
-  *rate: number;                // 0 ... 2 ... 3.5 ...  5
-  *userId: number;
-  *comment: string;
-  top: number;                  // 0 | 1 => byDefault 1
-  status: number;               // byDefault 1
-  creaetdAt: DATE;
-  updatedAt: DATE;
-}
-```
-
----
-
 ### Destinations CRUD
 
 <ul>
@@ -329,7 +371,6 @@
   subCategoryIds: number[];     // [1, 2, 3]
   cauntryIds: number[];         // [1, 2, 3]
   *fileId: number;              // example: 1
-  file: FILE_DTO;               // example: FILE_DTO
   published_at: DATE;
   creaetdAt: DATE;
   updatedAt: DATE;
@@ -538,7 +579,6 @@
   *password: string;
   *repeatPassword: string;
   fileId: number;              // example: 1
-  file: FILE_DTO;                // example: "https...jpg"
   status: number;               // byDefault 1
   role: string;                 // "USER" | "MODERATOR" | "ADMIN" => default "USER"
   token: string;                // JWT token
