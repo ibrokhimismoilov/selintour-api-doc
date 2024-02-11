@@ -26,18 +26,19 @@
 
 <ul>
   <li>GET => LIST <code>/api/files</code></li>
-  <li>GET => ONE <code>/api/files/?file_id=1</code></li>
-  <li>DELETE => DELETE <code>/api/files/delete?file_id=1</code></li>
+  <li>GET => ONE <code>/api/files/?fileId=1</code></li>
+  <li>DELETE => DELETE <code>/api/files/delete?fileId=1</code></li>
 </ul>
 
 ```JS
 
 [
   {
-    file_id: number;
+    fileId: number;
     orgUrl: "https://...",
     size: number, // 10240 bytes
     type: string, // file Type
+    name: string, // file Type
     src: {
       thumb: "https://..."
       large: "https://..."
@@ -60,15 +61,15 @@
 
 <ul>
   <li>GET => LIST <code>/api/files/private</code></li>
-  <li>GET => ONE <code>/api/files/private?file_id=1</code></li>
-  <li>DELETE => DELETE <code>/api/files/private/delete?file_id=1</code></li>
+  <li>GET => ONE <code>/api/files/private?fileId=1</code></li>
+  <li>DELETE => DELETE <code>/api/files/private/delete?fileId=1</code></li>
 </ul>
 
 ```JS
 
 [
   {
-    file_id: number;
+    fileId: number;
     orgUrl: "https://...",
     size: number, // 10240 bytes
     type: string, // file Type
@@ -88,27 +89,27 @@
   <li>GET => LIST <code>/api/settings</code></li>
   <li>GET => ONE <code>/api/settings/[slug]</code></li>
   <li>POST => CREATE <code>/api/settings/create</code></li>
-  <li>PUT => UPDATE <code>/api/settings/update?id=1</code></li>
-  <li>DELETE => DELETE <code>/api/settings/delete?id=1</code></li>
+  <li>PUT => UPDATE <code>/api/settings/update?{id}</code></li>
+  <li>DELETE => DELETE <code>/api/settings/delete?{id}</code></li>
 </ul>
 
 ```JS
 {
   id: number;
-  title_uz: string;
-  title_ru: string;
-  title_en: string;
-  description_uz: string;
-  description_ru: string;
-  description_en: string;
+  titleUz: string;
+  titleRu: string;
+  titleEn: string;
+  descriptionUz: string;
+  descriptionRu: string;
+  descriptionEn: string;
   link: string;
   alias: string;
   *slug: string;        // on update don't edit slug field
   status: number;       // byDefault 1
-  file_id: number;      // example: 1
-  file: fileUrl;        // example: "https...jpg"
-  creaetd_at: DATE;
-  updated_at: DATE;
+  fileId: number;      // example: 1
+  file: FILE_DTO;
+  creaetdAt: DATE;
+  updatedAt: DATE;
 }
 ```
 
@@ -118,21 +119,22 @@
 
 <ul>
   <li>GET => LIST <code>/api/category</code> </li>
-  <li>GET => ONE <code>/api/category/[id]</code></li>
+  <li>GET => ONE <code>/api/category/[categorySlug]</code></li>
   <li>POST => CREATE <code>/api/category/create</code></li>
-  <li>PUT => UPDATE <code>/api/category/update?id=1</code></li>
-  <li>DELETE => DELETE <code>/api/category/delete?id=1</code></li>
+  <li>PUT => UPDATE <code>/api/category/update?{id}</code></li>
+  <li>DELETE => DELETE <code>/api/category/delete?{id}</code></li>
 </ul>
 
 ```JS
 {
   id: number;
-  *title_uz: string;
-  *title_ru: string;
-  *title_en: string;
+  *categorySlug: string;
+  *titleUz: string;
+  *titleRu: string;
+  *titleEn: string;
   status: number;  // byDefault 1
-  creaetd_at: DATE;
-  updated_at: DATE;
+  creaetdAt: DATE;
+  updatedAt: DATE;
 }
 ```
 
@@ -142,23 +144,23 @@
 
 <ul>
   <li>GET => LIST <code>/api/sub-category</code></li>
-  <li>GET => ONE GROUP <code>/api/sub-category?category_id=1</code></li>
-  <li>GET => ONE <code>/api/sub-category/[sub-category_id]</code></li>
-  <li>POST => CREATE <code>/api/sub-category/create?category_id=1</code></li>
-  <li>PUT => UPDATE <code>/api/sub-category/update?id=1</code></li>
-  <li>DELETE => DELETE <code>/api/sub-category/delete?id=1</code></li>
+  <li>GET => ONE <code>/api/sub-category/[subCategoryId]</code></li>
+  <li>GET => ONE GROUP <code>/api/sub-category?{categorySlug}</code></li>
+  <li>POST => CREATE <code>/api/sub-category/create?{categorySlug}</code></li>
+  <li>PUT => UPDATE <code>/api/sub-category/update?{id}</code></li>
+  <li>DELETE => DELETE <code>/api/sub-category/delete?{id}</code></li>
 </ul>
 
 ```JS
 {
   id: number;
-  *title_uz: string;
-  *title_ru: string;
-  *title_en: string;
-  *category_id: number;
+  *titleUz: string;
+  *titleRu: string;
+  *titleEn: string;
+  *categorySlug: number;
   status: number; // byDefault 1
-  creaetd_at: DATE;
-  updated_at: DATE;
+  creaetdAt: DATE;
+  updatedAt: DATE;
 }
 ```
 
@@ -168,25 +170,25 @@
 
 <ul>
   <li>GET => LIST <code>/api/faq</code></li>
-  <li>GET => ONE GROUP <code>/api/faq?sub_category_id=1</code></li>
-  <li>POST => CREATE <code>/api/faq/create?sub_category_id=1</code></li>
-  <li>PUT => UPDATE <code>/api/faq/update?id=1</code></li>
-  <li>DELETE => DELETE <code>/api/faq/delete?id=1</code></li>
+  <li>GET => ONE GROUP <code>/api/faq?{subCategoryId}</code></li>
+  <li>POST => CREATE <code>/api/faq/create?{subCategoryId}</code></li>
+  <li>PUT => UPDATE <code>/api/faq/update?{id}</code></li>
+  <li>DELETE => DELETE <code>/api/faq/delete?{id}</code></li>
 </ul>
 
 ```JS
 {
   id: number;
-  *title_uz: string;
-  *title_ru: string;
-  *title_en: string;
-  *description_uz: string;
-  *description_ru: string;
-  *description_en: string;
-  sub_category_ids: number[]; // [1, 2, 3]
+  *titleUz: string;
+  *titleRu: string;
+  *titleEn: string;
+  *descriptionUz: string;
+  *descriptionRu: string;
+  *descriptionEn: string;
+  subcategoryIds: number[];   // [1, 2, 3]
   status: number;             // byDefault 1
-  creaetd_at: DATE;
-  updated_at: DATE;
+  creaetdAt: DATE;
+  updatedAt: DATE;
 }
 ```
 
@@ -198,19 +200,19 @@
   <li>GET => LIST <code>/api/page-checked-list</code></li>
   <li>GET => ONE <code>/api/page-checked-list/[id]</code></li>
   <li>POST => CREATE <code>/api/page-checked-list/create</code></li>
-  <li>PUT => UPDATE <code>/api/page-checked-list/update?id=1</code></li>
-  <li>DELETE => DELETE <code>/api/page-checked-list/delete?id=1</code></li>
+  <li>PUT => UPDATE <code>/api/page-checked-list/update?{id}</code></li>
+  <li>DELETE => DELETE <code>/api/page-checked-list/delete?{id}</code></li>
 </ul>
 
 ```JS
 {
   id: number;
-  *content_uz: string;           // unlimited size
-  *content_ru: string;           // unlimited size
-  *content_en: string;           // unlimited size
+  *contentUz: string;           // unlimited size
+  *contentRu: string;           // unlimited size
+  *contentEn: string;           // unlimited size
   status: number;                // byDefault 1
-  creaetd_at: DATE;
-  updated_at: DATE;
+  creaetdAt: DATE;
+  updatedAt: DATE;
 }
 ```
 
@@ -222,30 +224,30 @@
   <li>GET => LIST <code>/api/page</code></li>
   <li>GET => ONE <code>/api/page/[slug]</code></li>
   <li>POST => CREATE <code>/api/page/create</code></li>
-  <li>PUT => UPDATE <code>/api/page/update?id=1</code></li>
-  <li>DELETE => DELETE <code>/api/page/delete?id=1</code></li>
+  <li>PUT => UPDATE <code>/api/page/update?{id}</code></li>
+  <li>DELETE => DELETE <code>/api/page/delete?{id}</code></li>
 </ul>
 
 ```JS
 {
   id: number;
-  title_uz: string;
-  title_ru: string;
-  title_en: string;
-  description_uz: string;
-  description_ru: string;
-  description_en: string;
-  content_uz: string;           // unlimited size
-  content_ru: string;           // unlimited size
-  content_en: string;           // unlimited size
+  titleUz: string;
+  titleRu: string;
+  titleEn: string;
+  descriptionUz: string;
+  descriptionRu: string;
+  descriptionEn: string;
+  contentUz: string;            // unlimited size
+  contentRu: string;            // unlimited size
+  contentEn: string;            // unlimited size
   link: string;
   *slug: string;                // on update don't edit slug field
   status: number;               // byDefault 1
-  file_ids: number[];           // example: [1, 2, 3]
-  files: [file urls];           // example: ["https...jpg", "https...png", "https...svg"]
-  checked_list_ids: nummber[];  // [1, 2]
-  creaetd_at: DATE;
-  updated_at: DATE;
+  fileIds: number[];            // example: [1, 2, 3]
+  files: [FILE_DTO];            // [FILE_DTO, FILE_DTO]
+  checkedListIds: nummber[];    // [1, 2]
+  creaetdAt: DATE;
+  updatedAt: DATE;
 }
 ```
 
@@ -259,19 +261,19 @@
   <li>GET => LIST <code>/api/country</code></li>
   <li>GET => ONE <code>/api/country/[id]</code></li>
   <li>POST => CREATE <code>/api/country/create</code></li>
-  <li>PUT => UPDATE <code>/api/country/update?id=1</code></li>
-  <li>DELETE => DELETE <code>/api/country/delete?id=1</code></li>
+  <li>PUT => UPDATE <code>/api/country/update?{id}</code></li>
+  <li>DELETE => DELETE <code>/api/country/delete?{id}</code></li>
 </ul>
 
 ```JS
 {
   id: number;
   status: number;
-  *title_uz: string;
-  *title_ru: string;
-  *title_en: string;
-  creaetd_at: DATE;
-  updated_at: DATE;
+  *titleUz: string;
+  *titleRu: string;
+  *titleEn: string;
+  creaetdAt: DATE;
+  updatedAt: DATE;
 }
 ```
 
@@ -283,23 +285,20 @@
   <li>GET => LIST <code>/api/testimonials</code></li>
   <li>GET => ONE <code>/api/testimonials/[id]</code></li>
   <li>POST => CREATE <code>/api/testimonials/create</code></li>
-  <li>PUT => UPDATE <code>/api/testimonials/update?id=1</code></li>
-  <li>DELETE => DELETE <code>/api/testimonials/delete?id=1</code></li>
+  <li>PUT => UPDATE <code>/api/testimonials/update?{id}</code></li>
+  <li>DELETE => DELETE <code>/api/testimonials/delete?{id}</code></li>
 </ul>
 
 ```JS
 {
   id: number;
-  user_id: number;
+  *rate: number;                // 0 ... 2 ... 3.5 ...  5
+  *userId: number;
   *comment: string;
-  *rate: number;                // 0 | 1 | 2 | 3 | 4 | 5
   top: number;                  // 0 | 1 => byDefault 1
   status: number;               // byDefault 1
-  // name: string;
-  // *file_id: number;          // example: 1
-  // file: fileUrl;             // example: "https...jpg"
-  creaetd_at: DATE;
-  updated_at: DATE;
+  creaetdAt: DATE;
+  updatedAt: DATE;
 }
 ```
 
@@ -311,29 +310,29 @@
   <li>GET => LIST <code>/api/destination</code></li>
   <li>GET => ONE <code>/api/destination/[id]</code></li>
   <li>POST => CREATE <code>/api/destination/create</code></li>
-  <li>PUT => UPDATE <code>/api/destination/update?id=1</code></li>
-  <li>DELETE => DELETE <code>/api/destination/delete?id=1</code></li>
+  <li>PUT => UPDATE <code>/api/destination/update?{id}</code></li>
+  <li>DELETE => DELETE <code>/api/destination/delete?{id}</code></li>
 </ul>
 
 ```JS
 {
   id: number;
-  *title_uz: string;
-  *title_ru: string;
-  *title_en: string;
-  *description_uz: string;
-  *description_ru: string;
-  *description_en: string;
+  *titleUz: string;
+  *titleRu: string;
+  *titleEn: string;
+  *descriptionUz: string;
+  *descriptionRu: string;
+  *descriptionEn: string;
   top: number;                  // 0 | 1 => byDefault 1
   status: number;               // byDefault 1
-  tour_count: number;           // auto generate joined tours count
-  sub_category_ids: number[];   // [1, 2, 3]
-  cauntry_ids: number[];        // [1, 2, 3]
-  *file_id: number;             // example: 1
-  file: fileUrl;                // example: "https...jpg"
+  tourCount: number;            // auto generate when joined tours
+  subCategoryIds: number[];     // [1, 2, 3]
+  cauntryIds: number[];         // [1, 2, 3]
+  *fileId: number;              // example: 1
+  file: FILE_DTO;               // example: FILE_DTO
   published_at: DATE;
-  creaetd_at: DATE;
-  updated_at: DATE;
+  creaetdAt: DATE;
+  updatedAt: DATE;
 }
 ```
 
@@ -345,19 +344,19 @@
   <li>GET => LIST <code>/api/tour-include</code></li>
   <li>GET => ONE <code>/api/tour-include/[id]</code></li>
   <li>POST => CREATE <code>/api/tour-include/create</code></li>
-  <li>PUT => UPDATE <code>/api/tour-include/update?id=1</code></li>
-  <li>DELETE => DELETE <code>/api/tour-include/delete?id=1</code></li>
+  <li>PUT => UPDATE <code>/api/tour-include/update?{id}</code></li>
+  <li>DELETE => DELETE <code>/api/tour-include/delete?{id}</code></li>
 </ul>
 
 ```JS
 {
   id: number;
-  *title_uz: string;
-  *title_ru: string;
-  *title_en: string;
+  *titleUz: string;
+  *titleRu: string;
+  *titleEn: string;
   status: number;     // byDefault 1
-  creaetd_at: DATE;
-  updated_at: DATE;
+  creaetdAt: DATE;
+  updatedAt: DATE;
 }
 ```
 
@@ -369,22 +368,22 @@
   <li>GET => LIST <code>/api/tour-itenirary-plan</code></li>
   <li>GET => ONE <code>/api/tour-itenirary-plan/[id]</code></li>
   <li>POST => CREATE <code>/api/tour-itenirary-plan/create</code></li>
-  <li>PUT => UPDATE <code>/api/tour-itenirary-plan/update?id=1</code></li>
-  <li>DELETE => DELETE <code>/api/tour-itenirary-plan/delete?id=1</code></li>
+  <li>PUT => UPDATE <code>/api/tour-itenirary-plan/update?{id}</code></li>
+  <li>DELETE => DELETE <code>/api/tour-itenirary-plan/delete?{id}</code></li>
 </ul>
 
 ```JS
 {
   id: number;
-  *title_uz: string;
-  *title_ru: string;
-  *title_en: string;
-  *description_uz: string;
-  *description_ru: string;
-  *description_en: string;
+  *titleUz: string;
+  *titleRu: string;
+  *titleEn: string;
+  *descriptionUz: string;
+  *descriptionRu: string;
+  *descriptionEn: string;
   status: number;           // byDefault 1
-  creaetd_at: DATE;
-  updated_at: DATE;
+  creaetdAt: DATE;
+  updatedAt: DATE;
 }
 ```
 
@@ -396,33 +395,33 @@
   <li>GET => LIST <code>/api/tour</code></li>
   <li>GET => ONE <code>/api/tour/[id]</code></li>
   <li>POST => CREATE <code>/api/tour/create</code></li>
-  <li>PUT => UPDATE <code>/api/tour/update?id=1</code></li>
-  <li>DELETE => DELETE <code>/api/tour/delete?id=1</code></li>
+  <li>PUT => UPDATE <code>/api/tour/update?{id}</code></li>
+  <li>DELETE => DELETE <code>/api/tour/delete?{id}</code></li>
 </ul>
 
 ```JS
 
 // filter params
 {
+  title: string;
+
   id: number;
 
   type: "new" | "top" | "discount" | "popular" // popular => maxLiked // byDefault "new"
 
-  destination_ids: string;      // "1,2,3"
+  countryIds: string;          // "1,2,3"
+  categoryIds: string;         // "1,2,3"
+  destinationIds: string;      // "1,2,3"
+  subCategoryIds: string;      // "1,2,3"
 
-  sub_category_ids: string;     // "1,2,3"
+  beginPeopleCount: number;
+  endPeopleCount: number;
 
-  country_ids: string;          // "1,2,3"
+  beginDate: string;           // 11.10.2024
+  endDate: string;             // 29.11.2024
 
-  begin_people_count: number;
-  end_people_count: number;
-
-  begin_date: string;           // 11.10.2024
-  end_date: string;             // 29.11.2024
-
-  begin_price: number;
-  end_price: number;
-
+  beginPrice: number;
+  endPrice: number;
 }
 
 // data
@@ -430,33 +429,35 @@
   id: number;
   *tour_number: string;
   *price: number;
-  discount_price: number;
-  *title_uz: string;
-  *title_ru: string;
-  *title_en: string;
-  description_uz: string;
-  description_ru: string;
-  description_en: string;
-  content_uz: string;           // size unlimited
-  content_ru: string;           // size unlimited
-  content_en: string;           // size unlimited
-  people_count: number;
-  rate_count: number;           // 44
-  avg_rate: number;             // 4.4
-  duration_days: number;
-  employe_id: number;
-  cauntry_ids: number[];        // [1, 2, 3]
-  testimonial_ids: number[];    // [1, 2, 3]
-  sub_category_ids: number[];   // [1, 2, 3]
-  itenirary_plan_ids: number[]; // [1, 2, 3]
-  *file_ids: number;            // example: [1, 2, 3]
-  files: [fileUrls];            // example: ["https...jpg", "https...jpg", "https...jpg"...]
+  discountPrice: number;
+  *titleUz: string;
+  *titleRu: string;
+  *titleEn: string;
+  descriptionUz: string;
+  descriptionRu: string;
+  descriptionEn: string;
+  contentUz: string;            // size unlimited
+  contentRu: string;            // size unlimited
+  contentEn: string;            // size unlimited
+  peopleCount: number;
+  rateCount: number;            // 44
+  avgRate: number;              // 4.4
+  durationDays: number;
+  employeId: number;
+  cauntryIds: number[];         // [1, 2, 3]
+  testimonialIds: number[];     // [1, 2, 3]
+  subCategoryIds: number[];     // [1, 2, 3]
+  iteniraryPlanIds: number[];   // [1, 2, 3]
+  includeIds: number[];         // [1, 2, 3]
+  noIncludeIds: number[];       // [1, 2, 3]
+  *fileIds: number[];           // example: [1, 2, 3]
+  files: [FILE_DTO];            // example: [FILE_DTO, FILE_DTO, FILE_DTO...]
   top: number;                  // 0 | 1 => byDefault 1
   status: number;               // byDefault 1
-  creaetd_at: DATE;
-  updated_at: DATE;
+  creaetdAt: DATE;
+  updatedAt: DATE;
   // isLidked...
-  // lidked_count...
+  // lidkedCount...
 }
 ```
 
@@ -505,14 +506,101 @@
 
 ---
 
-### USER CRUD
+### USER CRUD (FOR ADMIN)
 
 <ul>
   <li>GET => LIST <code>/api/user</code></li>
   <li>GET => ONE <code>/api/user/[id]</code></li>
   <li>POST => CREATE <code>/api/user/create</code></li>
-  <li>PUT => UPDATE <code>/api/user/update?id=1</code></li>
-  <li>DELETE => DELETE <code>/api/user/delete?id=1</code></li>
+  <li>PUT => UPDATE <code>/api/user/update?{id}</code></li>
+  <li>DELETE => DELETE <code>/api/user/delete?{id}</code></li>
+</ul>
+
+```JS
+
+
+// filter params
+{
+  id: number;
+  role: "USER" | "MODERATOR" | "ADMIN"
+}
+
+// data
+{
+  id: number;
+  *first_name: string;
+  last_name: string;
+  birth_date: DATE;             // 24.01.1998
+  *email: string;
+  *phone: string;
+  *countryId: number;          // from /api/country
+  region: string;
+  *password: string;
+  *repeatPassword: string;
+  fileId: number;              // example: 1
+  file: FILE_DTO;                // example: "https...jpg"
+  status: number;               // byDefault 1
+  role: string;                 // "USER" | "MODERATOR" | "ADMIN" => default "USER"
+  token: string;                // JWT token
+  creaetdAt: DATE;
+  updatedAt: DATE;
+  // profile...
+}
+```
+
+### USER UPDATE
+
+<ul>
+  <li>PUT => UPDATE <code>/api/user/update?userId=1</code></li>
+</ul>
+
+```JS
+
+// data
+{
+  id: number;
+  *first_name: string;
+  last_name: string;
+  birth_date: DATE;             // 24.01.1998
+  *email: string;
+  *phone: string;
+  *country_id: number;          // from /api/country
+  region: string;
+  // fileId: number;              // example: 1
+  // file: fileUrl;                // example: "https...jpg"
+  // status: number;               // byDefault 1
+  // role: string;                 // "USER" | "MODERATOR" | "ADMIN" => default "USER"
+  // token: string;                // JWT token
+  // creaetdAt: DATE;
+  // updatedAt: DATE;
+  // profile...
+}
+```
+
+### USER PASSWORD UPDATE
+
+<ul>
+  <li>PUT => UPDATE <code>/api/user/update/password?userId=1</code></li>
+</ul>
+
+```JS
+
+// data
+{
+  *current_password: string;
+  *password: string;
+  *repeat_password: string;
+}
+```
+
+### USER CRUD (FOR ADMIN)
+
+<ul>
+  <li>GET => LIST <code>/api/user</code></li>
+  <li>GET => ONE <code>/api/user/[id]</code></li>
+  <li>POST => CREATE <code>/api/user/create</code></li>
+  <li>PUT => UPDATE <code>/api/user/update?{id}</code></li>
+  <li>DELETE => DELETE <code>/api/user/delete?{id}</code></li>
 </ul>
 
 ```JS
@@ -536,13 +624,13 @@
   region: string;
   *password: string;
   *repeat_password: string;
-  file_id: number;              // example: 1
+  fileId: number;              // example: 1
   file: fileUrl;                // example: "https...jpg"
   status: number;               // byDefault 1
   role: string;                 // "USER" | "MODERATOR" | "ADMIN" => default "USER"
   token: string;                // JWT token
-  creaetd_at: DATE;
-  updated_at: DATE;
+  creaetdAt: DATE;
+  updatedAt: DATE;
   // profile...
 }
 ```
