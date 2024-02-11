@@ -506,6 +506,31 @@
 <br/>
 <br/>
 
+### CONTACT
+
+<ul>
+  <li>GET => LIST <code>/api/contact</code></li>
+  <li>POST => CREATE <code>/api/contact/create</code></li>
+  <li>DELETE => DELETE <code>/api/contact/delete?{id}</code></li>
+</ul>
+
+```JS
+
+{
+  *name: string;
+  *email: string;
+  *phone: string;
+  *message: string;
+  company: string;
+  userId: numbar;   // Agar regsitratsiyadan o'tgan bo'lsa userId qohib yuboriladi, USER CRUDga bog'lash shartmas.
+  creaetdAt: DATE;
+  updatedAt: DATE;
+}
+
+```
+
+---
+
 ### AUTH REGISTER
 
 <ul>
