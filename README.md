@@ -566,16 +566,16 @@
 // data
 {
   id: number;
-  *first_name: string;
-  last_name: string;
-  birth_date: DATE;             // 24.01.1998
+  *firstName: string;
+  lastName: string;
+  birthDate: DATE;             // 24.01.1998
   *email: string;
   *phone: string;
-  *countryId: number;          // from /api/country
+  *countryId: number;           // from /api/country
   region: string;
   *password: string;
   *repeatPassword: string;
-  fileId: number;              // example: 1
+  fileId: number;               // example: 1
   status: number;               // byDefault 1
   role: string;                 // "USER" | "MODERATOR" | "ADMIN" => default "USER"
   token: string;                // JWT token
@@ -588,7 +588,7 @@
 ### USER UPDATE
 
 <ul>
-  <li>PUT => UPDATE <code>/api/user/update?userId=1</code></li>
+  <li>PUT => UPDATE <code>/api/user/update?{userId}</code></li>
 </ul>
 
 ```JS
@@ -596,21 +596,16 @@
 // data
 {
   id: number;
-  *first_name: string;
-  last_name: string;
-  birth_date: DATE;             // 24.01.1998
+  birthDate: DATE;              // 24.01.1998
+  lastName: string;
+  *firstName: string;
   *email: string;
   *phone: string;
-  *country_id: number;          // from /api/country
+  *countryId: number;           // from /api/country
   region: string;
-  // fileId: number;              // example: 1
-  // file: fileUrl;                // example: "https...jpg"
-  // status: number;               // byDefault 1
-  // role: string;                 // "USER" | "MODERATOR" | "ADMIN" => default "USER"
-  // token: string;                // JWT token
-  // creaetdAt: DATE;
-  // updatedAt: DATE;
-  // profile...
+  fileId: number;               // example: 1
+  role: string;                 // "USER" | "MODERATOR" | "ADMIN" => default "USER" | update only admin
+  // status: number;            // byDefault 1
 }
 ```
 
@@ -624,9 +619,9 @@
 
 // data
 {
-  *current_password: string;
+  *currentPassword: string;
   *password: string;
-  *repeat_password: string;
+  *repeatPassword: string;
 }
 ```
 
@@ -642,7 +637,6 @@
 
 ```JS
 
-
 // filter params
 {
   id: number;
@@ -652,17 +646,16 @@
 // data
 {
   id: number;
-  *first_name: string;
-  last_name: string;
-  birth_date: DATE;             // 24.01.1998
+  lastName: string;
+  *firstName: string;
   *email: string;
   *phone: string;
-  *country_id: number;          // from /api/country
-  region: string;
+  *countryId: number;           // from /api/country
   *password: string;
-  *repeat_password: string;
-  fileId: number;              // example: 1
-  file: fileUrl;                // example: "https...jpg"
+  *repeatPassword: string;
+  birthDate: DATE;              // 24.01.1998
+  region: string;
+  fileId: number;               // example: 1
   status: number;               // byDefault 1
   role: string;                 // "USER" | "MODERATOR" | "ADMIN" => default "USER"
   token: string;                // JWT token
@@ -670,4 +663,5 @@
   updatedAt: DATE;
   // profile...
 }
+
 ```
