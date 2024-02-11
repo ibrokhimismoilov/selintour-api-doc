@@ -35,7 +35,7 @@
   - destinationIds: [1, 2] => ketgan bo'lsa getOneAPIda { destinations: [DESTINATION_DTO, DESTINATION_DTO...] }
 
   - userId: 1 => ketgan bo'lsa getOneAPIda { user: USER_DTO }
-  - userIds: [1, 2] => ketgan bo'lsa getOneAPIda { user: [USER_DTO, USER_DTO...] }
+  - userIds: [1, 2] => ketgan bo'lsa getOneAPIda { users: [USER_DTO, USER_DTO...] }
 
   - employeeId: 1 => ketgan bo'lsa getOneAPIda { employee: USER_DTO }
   - employeeIds: [1, 2] => ketgan bo'lsa getOneAPIda { employees: [USER_DTO, USER_DTO...] }
