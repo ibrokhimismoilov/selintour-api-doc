@@ -423,21 +423,26 @@
 
   id: number;
 
-  type: "new" | "top" | "discount" | "popular" // popular => maxLiked // byDefault "new"
+  sort: "new" | "popular";      // popular => maxLiked | new => -id
+  top: 1;                       // byDefault 0
+  discountPrice: 1;             // byDefault 0
 
-  countryIds: string;          // "1,2,3"
-  categoryIds: string;         // "1,2,3"
-  destinationIds: string;      // "1,2,3"
-  subCategoryIds: string;      // "1,2,3"
+  countryIds: string;           // "1,2,3"
+  categoryIds: string;          // "1,2,3"
+  destinationIds: string;       // "1,2,3"
+  subCategoryIds: string;       // "1,2,3"
 
-  beginPeopleCount: number;
-  endPeopleCount: number;
+  beginPeopleCount: number;     // 0
+  endPeopleCount: number;       // 100
 
-  beginDate: string;           // 11.10.2024
-  endDate: string;             // 29.11.2024
+  beginDate: number;            // 0
+  endDate: number;              // 100
 
-  beginPrice: number;
-  endPrice: number;
+  beginPrice: number;           // 0
+  endPrice: number;             // 100...
+
+  // beginDate: string;         // 11.10.2024
+  // endDate: string;           // 29.11.2024
 }
 
 // data
@@ -470,6 +475,7 @@
   files: [FILE_DTO];            // example: [FILE_DTO, FILE_DTO, FILE_DTO...]
   top: number;                  // 0 | 1 => byDefault 1
   status: number;               // byDefault 1
+  publishedAt: DATE;
   creaetdAt: DATE;
   updatedAt: DATE;
   // isLidked...
