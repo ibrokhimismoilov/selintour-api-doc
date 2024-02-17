@@ -472,7 +472,6 @@
   includeIds: number[];         // [1, 2, 3]
   noIncludeIds: number[];       // [1, 2, 3]
   *fileIds: number[];           // example: [1, 2, 3]
-  files: [FILE_DTO];            // example: [FILE_DTO, FILE_DTO, FILE_DTO...]
   top: number;                  // 0 | 1 => byDefault 1
   status: number;               // byDefault 1
   publishedAt: DATE;
