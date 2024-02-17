@@ -206,7 +206,7 @@
 
 ---
 
-### Testimonials CRUD [open => GET_LIST, GET_ONE]
+### Testimonials CRUD [open => GET_LIST]
 
 <ul>
   <li>GET => LIST <code>/api/testimonials</code></li>
@@ -262,7 +262,7 @@
 
 ---
 
-### PageCheckedList CRUD [open => GET_LIST, GET_ONE_GROUP]
+### PageCheckedList CRUD
 
 <ul>
   <li>GET => LIST <code>/api/page-checked-list</code></li>
@@ -286,7 +286,7 @@
 
 ---
 
-### Page CRUD [open => GET_LIST, GET_ONE]
+### Page CRUD [open => GET_ONE]
 
 <ul>
   <li>GET => LIST <code>/api/page</code></li>
@@ -354,7 +354,7 @@
 
 ---
 
-### Tour includes CRUD [open => GET_LIST, GET_ONE]
+### Tour includes CRUD
 
 <ul>
   <li>GET => LIST <code>/api/tour-include</code></li>
@@ -378,7 +378,7 @@
 
 ---
 
-### Tour Itenirary CRUD [open => GET_LIST, GET_ONE]
+### Tour Itenirary CRUD
 
 <ul>
   <li>GET => LIST <code>/api/tour-itenirary-plan</code></li>
@@ -405,7 +405,7 @@
 
 ---
 
-### Tours CRUD [open => GET_LIST]
+### Tours CRUD [open => GET_LIST, GET_ONE]
 
 <ul>
   <li>GET => LIST <code>/api/tour</code></li>
