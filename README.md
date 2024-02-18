@@ -435,14 +435,14 @@
   beginPeopleCount: number;     // 0
   endPeopleCount: number;       // 100
 
-  beginDate: number;            // 0
-  endDate: number;              // 100
+  beginDurationDays: number;    // 0
+  endDurationDays: number;      // 100
+
+  beginDate: string;            // 11.10.2024
+  endDate: string;              // 29.11.2024
 
   beginPrice: number;           // 0
   endPrice: number;             // 100...
-
-  // beginDate: string;         // 11.10.2024
-  // endDate: string;           // 29.11.2024
 }
 
 // data
@@ -454,6 +454,7 @@
   *titleUz: string;
   *titleRu: string;
   *titleEn: string;
+  *tourDate: DATE;
   descriptionUz: string;
   descriptionRu: string;
   descriptionEn: string;
