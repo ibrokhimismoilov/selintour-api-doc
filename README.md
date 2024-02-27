@@ -725,3 +725,26 @@
 }
 
 ```
+
+### USER BOOKING-REVIEWS
+
+<ul>
+  <li>POST => CREATE <code>/api/user/bookings-review</code></li>
+</ul>
+
+```JS
+
+// data
+{
+
+  id: number;
+  *rate: number;                // 0 ... 2 ... 3.5 ...  5
+  *userId: number;
+  *tourId: number;              // avtomatic tourga birikib qoladi.
+  *comment: string;
+  top: number;                  // 0 | 1 => byDefault 1
+  status: number;               // byDefault 1
+  creaetdAt: DATE;
+  updatedAt: DATE;
+}
+```
