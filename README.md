@@ -419,6 +419,10 @@
 
 // filter params
 {
+  testimonialId: number;      // userId orqali tourni listini filterlab qaytaradi.
+  testimonialId: number;      // userId orqali tourni listini filterlab qaytaradi.
+  isLikedUserId: number;      // userId orqali qaysi tourlarga like bosilgan bo'lsa shularni listi qaytishi kerak.
+
   title: string;
 
   id: number;
@@ -621,7 +625,7 @@
 ### USER PASSWORD UPDATE
 
 <ul>
-  <li>PUT => UPDATE <code>/api/user/update/password?userId=1</code></li>
+  <li>PUT => UPDATE <code>/api/user/change-password?userId=1</code></li>
 </ul>
 
 ```JS
