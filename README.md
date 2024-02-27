@@ -450,11 +450,12 @@
   id: number;
   *tour_number: string;
   *price: number;
+  *durationDays: number;
   discountPrice: number;
+  *tourDate: DATE;
   *titleUz: string;
   *titleRu: string;
   *titleEn: string;
-  *tourDate: DATE;
   descriptionUz: string;
   descriptionRu: string;
   descriptionEn: string;
@@ -464,7 +465,6 @@
   peopleCount: number;
   rateCount: number;            // 44
   avgRate: number;              // 4.4
-  durationDays: number;
   employeId: number;
   cauntryIds: number[];         // [1, 2, 3]
   testimonialIds: number[];     // [1, 2, 3]
@@ -671,6 +671,53 @@
   creaetdAt: DATE;
   updatedAt: DATE;
   // profile...
+}
+
+```
+
+<!-- ================================================== -->
+<!-- ================================================== -->
+<!-- ================================================== -->
+
+### Bookings (FOR ADMIN & CLIENT with auth)
+
+<ul>
+  <li>GET => LIST <code>/api/bookings</code></li>
+  <li>GET => ONE <code>/api/bookings/[id]</code></li>
+  <li>POST => CREATE <code>/api/bookings/create</code></li>
+  <li>PUT => UPDATE <code>/api/bookings/update?{id}</code></li>
+  <li>DELETE => DELETE <code>/api/bookings/delete?{id}</code></li>
+</ul>
+
+```JS
+
+// filter params
+{
+  id: string;
+  // userId: number; // filter oneGourp bookings with tokon
+}
+
+// data
+{
+  id: number;
+  *tourId: number;
+  roomCount: string;
+  includeAirTravel: string;
+  *departureCountryId: string;
+  adultsTravellersCount: number;
+  childrenTravellersCount: number;
+  toddlersTravellersCount: number;
+
+  *name: string;
+  *email: string;
+  phone: string;
+  fax: string;
+  comment: string;
+  agentId: number;              // TOUR_DTO => EMPLOYEE_DTO.id
+  additional: string;           // "VISA" | "INSURANCE"
+
+  creaetdAt: DATE;
+  updatedAt: DATE;
 }
 
 ```
