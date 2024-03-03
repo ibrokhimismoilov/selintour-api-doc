@@ -419,9 +419,8 @@
 
 // filter params
 {
-  testimonialId: number;      // userId orqali tourni listini filterlab qaytaradi.
-  testimonialId: number;      // userId orqali tourni listini filterlab qaytaradi.
-  isLikedUserId: number;      // userId orqali qaysi tourlarga like bosilgan bo'lsa shularni listi qaytishi kerak.
+  // testimonialId: number;        // userId orqali tourni listini filterlab qaytaradi.
+  isLikedUserId: number;        // userId orqali qaysi tourlarga like bosilgan bo'lsa shularni listi qaytishi kerak.
 
   title: string;
 
