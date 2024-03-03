@@ -726,10 +726,12 @@
 
 ```
 
-### USER BOOKING-REVIEWS
+---
+
+### USER REVIEWS
 
 <ul>
-  <li>POST => CREATE <code>/api/user/bookings-review</code></li>
+  <li>POST => CREATE <code>/api/user/reviews/create</code></li>
 </ul>
 
 ```JS
@@ -747,4 +749,26 @@
   creaetdAt: DATE;
   updatedAt: DATE;
 }
+```
+
+---
+
+### USER REVIEWS
+
+<ul>
+  <li>GET => GET_ALL <code>/api/user/reviews</code></li>
+</ul>
+
+```JS
+
+// data
+{
+  id: number;
+  tour: TOUR_DTO;                   // {id, files, titleUz, titleRu, titleEn}
+  rate: number;                     // 0 ... 2 ... 3.5 ...  5
+  comment: string;
+  creaetdAt: DATE;
+  updatedAt: DATE;
+}
+
 ```
