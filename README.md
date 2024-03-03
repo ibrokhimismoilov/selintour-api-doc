@@ -772,3 +772,23 @@
 }
 
 ```
+
+---
+
+### USER CHANGE_PASSWORD
+
+<ul>
+  <li>POST<code>/api/user/change-password</code></li>
+</ul>
+
+```JS
+
+// data
+{
+  *userId: number;
+  *currentPassword: string;
+  *newPassword: string;
+  *repeatNewPassword: string;
+}
+
+```
